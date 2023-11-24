@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/project_bugs.css">
+<div id="projects">
+    <ul>
+        <% for(let project of all_projects ){ %>
+            <li>
+
+                <a href="/users/destroy/<%= project.id %>">X</a>
+
+                <div class="ProNamecss">
+                   Project Name - <%= project.ProjectName %>
+                </div>
+
+                <div class="Desccss">
+                   Description - <%= project.Description %>
+                </div>
+
+                <div class="AuthorNamecss">
+                   Author - <%= project.Author %>
+                </div>
+                      
+
+                 
+                
+                    <ul>
+                       <% for(let bug of project.bug){%>
+                        <li>
+                            
+                                title - <%= bug.title %><br>
+                                Description - <%= bug.Description %><br>
+                                Author - <%= bug.Author %>
+                            
+                            
+                        </li>
+                        <% } %>
+                    </ul>
+
+                <a href="/show/bugform">Create Issue</a>
+
+
+            </li>
+        <% } %>
+    </ul>
+  
+</div>

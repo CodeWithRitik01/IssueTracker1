@@ -1,0 +1,7 @@
+#foot{
+    position: fixed;
+    top:93vh;
+    height:50px;
+    width: 100%;
+    background-color: grey;
+}

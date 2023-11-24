@@ -1,0 +1,43 @@
+
+#layout-header nav{
+    margin-top:-16px;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(108, 13, 196), #e8adde); 
+    box-shadow: 1px 1px 1px 1px black;
+    text-decoration: none;
+    
+}
+
+.mini-logo p{
+    font-size:35px;
+}
+
+.mini-logo p i{
+    margin-right: 20px;
+    color:black;
+}
+
+.mini-logo p a{
+  text-decoration: none;
+  color:black;
+}
+
+.mini-logo p a:hover{
+    color:white;
+  }
+
+.pro{
+    position: fixed;
+    left:80%;
+    /* border: 1px solid black; */
+    background-image: linear-gradient(to right, rgb(123, 26, 213), #eb92dc); 
+    border-radius: 10px;
+}
+
+.pro  :hover{
+    background-image: linear-gradient(to right, rgb(142, 60, 219), #e89fdc); 
+
+}

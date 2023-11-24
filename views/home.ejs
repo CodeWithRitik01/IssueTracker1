@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div id="home_layout">
+    <div class="createProject">
+        <a href="/users/create" id="creatingLink">
+            <span class="creating">
+                Create New Project
+            </span>
+        </a>
+    </div>
+
+    <div id="projects">
+        <ul>
+            <% for(let project of all_projects ){ %>
+                <li>
+
+                    <a href="/users/destroy/<%= project.id %>">X</a>
+
+                    <div class="ProNamecss">
+                       Project Name - <%= project.ProjectName %>
+                    </div>
+
+                    <div class="Desccss">
+                       Description - <%= project.Description %>
+                    </div>
+
+                    <div class="AuthorNamecss">
+                       Author - <%= project.Author %>
+                    </div>
+                   
+
+                </li>
+            <% } %>
+        </ul>
+      
+    </div>
+   
+</div>
+

@@ -1,0 +1,82 @@
+body{
+    margin: 0px;
+    background-color: black;
+}
+
+.createProject{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+    margin-top:10px;
+    /* border:2px solid black; */
+    height: 100px;
+    width: 90%;
+    text-align: center;
+    background-color: rgb(61, 60, 60);
+    box-shadow: 0 10px 10px 0;
+}
+.createProject a{
+    text-decoration: none;
+    font-size: 30px;
+    text-align: center;
+    color:rgb(163, 76, 244);
+}
+
+.createProject:hover{
+     background-color: rgb(215, 210, 210);
+}
+
+
+li{
+   list-style: none;
+   margin-left: 0;
+   margin-bottom: 10px;
+   /* border:2px solid black; */
+   height: 120px;
+   width: 97%;
+   background-image: linear-gradient(to right, rgb(86, 64, 196), #78bce1); 
+   border-radius: 20px;
+
+}
+
+li:hover{
+    background-image: linear-gradient(to right, rgb(108, 88, 208), #98cfec); 
+}
+
+li a {
+    position: relative;
+    left:90%;
+    margin-top:-10%;
+    text-decoration: none;
+    color:black;
+    border:1px solid black;
+    background-color: red;
+}
+
+li a:hover{
+    background-color: white;
+}
+
+li
+.ProNamecss{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+  
+}
+
+
+
+.Desccss{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+
+}
+
+.AuthorNamecss{
+    text-align: center;
+    font-size: 18px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%>
+    </title>
+  
+    
+
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   
+    <script src="https://kit.fontawesome.com/337643e8f3.js" crossorigin="anonymous"></script>
+
+    <%- style %>
+    
+</head>
+<body>
+   
+    <%- include("_header"); %>
+
+    <%- body %>
+
+    <%- include("_footer"); %>
+
+
+    <%- script %>
+</body>
+</html>
