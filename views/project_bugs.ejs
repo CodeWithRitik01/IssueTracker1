@@ -18,23 +18,51 @@
                    Author - <%= project.Author %>
                 </div>
                       
+                <h2>Create Bug Issue</h2>
+                <div class="bodyPro">
 
-                 
+                    <div class="newPro">
+                        <form  action="/show/addToBug"  method="post">
+                            
+
+                                <label class="PName"> Title</label>
+                                <input type="text" name="title" placeholder="Title" required>
+                          
+                          
+                           
+                                <label class="Desc">Description</label>
+                                <input type="text" name="Description" placeholder="Description" required>
+                            
+                          
+                            
+                                <label class="AName">Author </label>
+                                <input type="text" name="Author" placeholder="Author " required>
+                            
+                
+                            <input type="hidden" name="project" value="<%= project._id %>">
+
+
+                           <input class="btn" type="submit" value="Create Issue">
+                        </form>
+                   </div>
+                
+                </div>
                 
                     <ul>
-                       <% for(let bug of project.bug){%>
+                       <% for(Bug of project.bug){ %>
                         <li>
-                            
-                                title - <%= bug.title %><br>
-                                Description - <%= bug.Description %><br>
-                                Author - <%= bug.Author %>
-                            
+                               
+                                title  <%= Bug.title %> <br>
+                                Description  <%= Bug.Description %> <br>
+                                Author  <%= Bug.Author %>
+                                <a href="/show/destroy/<%= Bug._id %>">X</a>
+
                             
                         </li>
                         <% } %>
                     </ul>
 
-                <a href="/show/bugform">Create Issue</a>
+                <!-- <a href="/show/bugform">Create Issue</a> -->
 
 
             </li>

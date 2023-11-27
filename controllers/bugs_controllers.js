@@ -5,11 +5,15 @@ module.exports.createBugs = async function(req, res){
     const projects = await project.find({});
     
     const bugs = await bug.find({});
-   return res.render('project_bugs', {
-    title: "create bugs",
-    all_projects: projects,
-    all_bugs: bugs
-   })
+
+    return res.render('project_bugs', {
+        title: "create bugs",
+        all_projects: projects,
+        all_bugs: bugs
+       })
+  
+
+  
 }
 
 module.exports.bugform = async function(req, res){
@@ -21,16 +25,37 @@ module.exports.bugform = async function(req, res){
 
 
 module.exports.addToBug = async function(req, res){
-
+    try{
+        let Project = await project.findById(req.body.project);
+        let Bugss = await bug.create({
+           title: req.body.title,
+           Description: req.body.Description,
+           Author: req.body.Author,
+           project: req.body.project
+        });
+        Project.bug.push(Bugss);
    
-       const Bugs = await bug.create(req.body);
-       const Project = await project.findById(req.body.project);
-       Project.bug.push(Bugs);
-       await post.save();
-        
-        console.log('new bug created', Bugs);
+        await Project.save();
+         
+         console.log('new bug created', Bugss);
+ 
+     
+ 
+     return res.redirect('/show/bug');
+    }catch(err){
+        console.error('Error in creating a bug:', err);
+        return res.status(500).send('Error in creating a bug');
+    }
+   
+}
 
-    
+module.exports.destroy = async function(req, res){
+    const Bug = await bug.findById(req.params.id);
+    console.log(Bug);
+    let projectId = Bug.project;
+    console.log(projectId);
+     Bug.deleteOne();
 
+    let Project = await project.findByIdAndUpdate(projectId, {$pull: {bug: req.params.id}});
     return res.redirect('/show/bug');
 }

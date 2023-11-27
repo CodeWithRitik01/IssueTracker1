@@ -25,6 +25,8 @@ module.exports.create = async function(req, res){
 module.exports.destroy = async function(req, res){
     const Project = await project.findById(req.params.id);
     await project.deleteOne();
+
+    await Bug.deleteMany({project: req.params.id}).exec();
     return res.redirect('/');
 }
 

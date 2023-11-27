@@ -15,8 +15,8 @@ const creatingProject = new mongoose.Schema({
     },
     bug: [
         {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Bugs'
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Bugs'
         }
     ]
 },{

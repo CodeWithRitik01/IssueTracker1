@@ -34,7 +34,7 @@ li{
    margin-left: 0;
    margin-bottom: 10px;
    /* border:2px solid black; */
-   height: 120px;
+   height: 100%;
    width: 97%;
    background-image: linear-gradient(to right, rgb(86, 64, 196), #78bce1); 
    border-radius: 20px;

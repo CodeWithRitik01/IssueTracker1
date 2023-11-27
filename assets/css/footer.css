@@ -1,7 +1,9 @@
 #foot{
-    position: fixed;
-    top:93vh;
-    height:50px;
-    width: 100%;
-    background-color: grey;
+    color: white;
+  background-color: grey;
+  padding: 5px 10px;
+  display: flex;
+  position: relative;
+  height: 50px;
+  top:100vh;
 }

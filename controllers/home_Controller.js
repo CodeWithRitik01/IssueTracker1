@@ -2,14 +2,18 @@ const project = require('../models/creating_schema');
 const Bug = require('../models/bug_schema');
 
 module.exports.home = async function(req, res){
-    const projects = await project.find({})
-    .sort('-createdAt')
-    .populate({
-        path: 'bug'
-    });
-    
 
     const bug = await Bug.find({});
+
+    const projects = await project.find({})
+  
+   .populate('bug')
+   .populate({
+    path: 'bug'
+   })
+   
+    
+
 
     return res.render('home', {
         title:"project | Home",

@@ -14,9 +14,11 @@ const creatingBug = new mongoose.Schema({
         required:true
     },
    project:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Project'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Project'
    }
+},{
+    timestamps: true
 });
 
 const Bugs = mongoose.model('Bugs', creatingBug);
