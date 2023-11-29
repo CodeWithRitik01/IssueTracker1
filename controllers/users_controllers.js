@@ -12,14 +12,13 @@ module.exports.addToDB = async function(req, res){
 }
 
 module.exports.create = async function(req, res){
-    const Project = await project.findById(req.params.id)
-    .populate({
-        path: 'bug'
-    });
+    const Project = await project.findById(req.params.id);
+  
 
     return res.render('newProject', {
         title: "Create Project",
         
+
     })
 }
 

@@ -1,20 +1,7 @@
 const project = require('../models/creating_schema');
 const bug = require('../models/bug_schema');
 
-module.exports.createBugs = async function(req, res){
-    const projects = await project.find({});
-    
-    const bugs = await bug.find({});
 
-    return res.render('project_bugs', {
-        title: "create bugs",
-        all_projects: projects,
-        all_bugs: bugs
-       })
-  
-
-  
-}
 
 module.exports.bugform = async function(req, res){
    
@@ -33,6 +20,8 @@ module.exports.addToBug = async function(req, res){
            Author: req.body.Author,
            project: req.body.project
         });
+        console.log("this is project", Project);
+        console.log("print this", Bugss);
         Project.bug.push(Bugss);
    
         await Project.save();
@@ -54,8 +43,23 @@ module.exports.destroy = async function(req, res){
     console.log(Bug);
     let projectId = Bug.project;
     console.log(projectId);
-     Bug.deleteOne();
+    await Bug.deleteOne();
 
     let Project = await project.findByIdAndUpdate(projectId, {$pull: {bug: req.params.id}});
     return res.redirect('/show/bug');
+}
+
+module.exports.createBugs = async function(req, res){
+    const projects = await project.find({});
+    
+    const bugs = await bug.find({});
+
+    return res.render('project_bugs', {
+        title: "create bugs",
+        all_projects: projects,
+        all_bugs: bugs
+       })
+  
+
+  
 }
