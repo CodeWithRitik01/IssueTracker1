@@ -80,3 +80,66 @@ li
     text-align: center;
     font-size: 18px;
 }
+
+#bugForm h2{
+    text-align: center;
+    color:rgb(196, 43, 43);
+}
+
+#bugForm{
+    padding: 5px;
+    background-image: linear-gradient(to right,#78bce1 ,rgb(120, 103, 205) ); 
+    margin-top: 10px;
+    
+  
+
+}
+
+.newPro{
+    margin-left: 200px;
+ 
+}
+
+#bug{
+    text-align: center;
+    
+}
+
+.bugTitle{
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.bugDesc{
+    font-size: 25px;
+}
+
+.dest{
+    position: relative;
+    left:40%;
+    top:30%;
+    margin-top:-10%;
+    text-decoration: none;
+    color:black;
+    border:1px solid black;
+    background-color: red;
+}
+
+span{
+    font-size: 30px;
+    
+}
+
+#notFound{
+    font-size: 50px;
+    margin-left: 30%;
+}
+
+.Fres{
+    text-align: center;
+    font-style: italic;
+    font-size: 50px;
+    
+}

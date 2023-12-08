@@ -1,75 +1,116 @@
 <link rel="stylesheet" href="/css/project_bugs.css">
-<div id="projects">
-    <ul>
-        <% for(let project of all_projects ){ %>
-            <li>
 
-                <a href="/users/destroy/<%= project.id %>">X</a>
-
-                <div class="ProNamecss">
-                   Project Name - <%= project.ProjectName %>
-                </div>
-
-                <div class="Desccss">
-                   Description - <%= project.Description %>
-                   
-                </div>
-
-                <div class="AuthorNamecss">
-                   Author - <%= project.Author %>
-                </div>
-             
-                <h2>Create Bug Issue</h2>
-                <div class="bodyPro">
-
-                    <div class="newPro">
-                        <form  action="/show/addToBug"  method="post">
-                            
-
-                                <label class="PName"> Title</label>
-                                <input type="text" name="title" placeholder="Title" required>
-                          
-                          
-                           
-                                <label class="Desc">Description</label>
-                                <input type="text" name="Description" placeholder="Description" required>
-                            
-                          
-                            
-                                <label class="AName">Author </label>
-                                <input type="text" name="Author" placeholder="Author" required>
-                            
-                
-                            <input type="hidden" name="project" value="<%= project._id %>">
-
-
-                           <input class="btn" type="submit" value="Create Issue">
-                        </form>
-                        
-                   </div>
-                  
-                
-                </div>
-                
-                    <ul>
-                       <% for(Bug of project.bug){ %>
-                        <li>
+<% if(Project.length == 0){ %>
+    <span id="notFound"><%= "No Project Found.. create it" %></span>
+<%}else{%>
+    <div id="projects">
+        <ul>
+            <% for(let project of Project ){ %>
+                <li>
+    
+                    <a href="/users/destroy/<%= project.id %>">X</a>
+    
+                    <div class="ProNamecss">
+                       Project Name - <%= project.ProjectName %>
+                    </div>
+    
+                    <div class="Desccss">
+                       Description - <%= project.Description %>
+                       
+                    </div>
+    
+                    <div class="AuthorNamecss">
+                       Author - <%= project.Author %>
+                    </div>
+                 
+                    
+    
+                    <div id="bugForm">
+                    <h2>Create Bug Issue</h2>
+                    <div class="bodyPro">
+    
+                        <div class="newPro">
+                            <form  action="/show/addToBug"  method="post">
+                                
+    
+                                    <label class="PName"> Title</label>
+                                    <input type="text" name="title" placeholder="Title" required>
+                              
+                              
                                
-                                title  <%= Bug.title %> <br>
-                                Description  <%= Bug.Description %> <br>
-                                Author  <%= Bug.Author %>
-                                <a href="/show/destroy/<%= Bug._id %>">X</a>
-
+                                    <label class="Desc">Description</label>
+                                    <textarea type="text" name="Description" rows="2" cols="30" placeholder="Description" required></textarea>
+                                
+                              
+                                
+                                    <label class="AName">Author </label>
+                                    <input type="text" name="Author" placeholder="Author" required>
+    
+                                    <label class="drop">Label</label>
+                                    <select name="label" name="month_Selected" >
+                                        <option >Bug</option>
+                                        <option>Documentation</option>
+                                        <option>Enhancement</option>
+                                        <option>Lag</option>
+                                    </select>
+    
+                                
+                    
+                                <input type="hidden" name="project" value="<%= project._id %>">
+    
+    
+                               <input class="btn" type="submit" value="Create Issue">
+                            </form>
                             
-                        </li>
+                       </div>
+                     
+                    
+                    </div>
+                </div>
+    
+                  <div id="bug">
+                    <% if ( project.bug.length === 0 )   { %>
+    
+                        <span><%= "Great!! No Bug Found" %></span>
+        
+                        <% }else{ %>
+                            <ul>
+                              
+                               
+                               <% for(Bug of project.bug){ %>
+                                <li>
+                                
+                                    <div class="bugTitle">
+                                        Title - <%= Bug.title %>
+                                    </div>
+    
+                                    <div class="bugDesc">
+                                        Description - <%= Bug.Description %> 
+                                    </div>
+    
+                                    <div class="bugAuthor">
+                                        Author - <%= Bug.Author %>
+                                    </div>
+                                      
+                                        
+                                    <a class="dest" href="/show/destroy/<%= Bug._id %>">X</a>
+        
+                                    
+                                </li>
+                                <% } %>
+                            </ul>
+                         
                         <% } %>
-                    </ul>
+                  </div>
+                   
+    
+                    
+    
+    
+                </li>
+            <% } %>
+        </ul>
+      
+    </div>
 
-                <!-- <a href="/show/bugform">Create Issue</a> -->
-
-
-            </li>
-        <% } %>
-    </ul>
-  
-</div>
+<%}%>

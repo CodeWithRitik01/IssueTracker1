@@ -18,7 +18,7 @@ const creatingProject = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Bugs'
         }
-    ]
+    ],
 },{
     timestamps: true
 });

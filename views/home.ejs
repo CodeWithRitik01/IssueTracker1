@@ -8,6 +8,37 @@
             </span>
         </a>
     </div>
+    <% if(all_projects.length != 0){ %>
+
+        <div id="filt">
+            <h2>Filter On Author</h2>
+            <div class="filter">
+                
+                      
+                
+                       <% for(let project of all_projects){%>
+                      
+                        <form action="/users/filter/<%= project.Author %>">
+                    
+                            <select name="filter" class="select" >
+                        
+                            <option name="author">
+                                <%= project.Author %>
+        
+                            </option>
+                        
+                        </select>
+                        
+                        <input type="submit" class="btn" value="filter">
+                    </form>
+                       <%}%>
+                    
+                    
+                    
+            </div>
+        </div>
+        <%}%>
+
 
     <div id="projects">
         <ul>
@@ -34,6 +65,9 @@
         </ul>
       
     </div>
+
+
+    
    
 </div>
 

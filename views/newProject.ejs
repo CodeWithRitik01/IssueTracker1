@@ -1,21 +1,23 @@
 <link rel="stylesheet" href="/css/newProject.css">
+
+
 <div class="bodyPro">
 
     <div class="newPro">
         <form action="/users/addProject"  method="post">
-            <div>
+            <div class="proName">
                 <label class="PName">Project Name</label>
-                <input type="text" name="ProjectName" placeholder="Project Name" required><br>
+                <input type="text"  style="width: 200px;" name="ProjectName" placeholder="Project Name" required><br>
             </div>
           
-            <div>
+            <div class="proDesc">
                 <label class="Desc">Description</label>
-                <input type="text" name="Description" placeholder="Description" required><br>
+                <textarea type="text" name="Description" rows="3" cols="30" placeholder="Description" required></textarea><br>
             </div>
           
-            <div>
+            <div class="proAuthor">
                 <label class="AName">Author Name</label>
-                <input type="text" name="Author" placeholder="Author Name" required><br>
+                <input type="text" style="width: 200px;" name="Author" placeholder="Author Name" required><br>
             </div>
           
            <input class="btn" type="submit" value="Create Project">

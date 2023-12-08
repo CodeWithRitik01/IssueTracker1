@@ -7,7 +7,6 @@ const Bug = require('../models/bug_schema');
 module.exports.addToDB = async function(req, res){
     const user = await project.create(req.body);
    
-    console.log('new project created', user);
     return res.redirect('/');
 }
 
@@ -17,7 +16,7 @@ module.exports.create = async function(req, res){
 
     return res.render('newProject', {
         title: "Create Project",
-        
+        all_projects: Project,
 
     })
 }
@@ -30,3 +29,22 @@ module.exports.destroy = async function(req, res){
     return res.redirect('/');
 }
 
+module.exports.filter = async function(req, res){
+     const Project = await project.find({});
+
+     const arr = [];
+     for(let i = 0; i<Project.length; i++){
+        if(req.params.Author === Project[i].Author){
+           let j = 0;
+            arr[j] = Project[i];
+            j++;
+        }
+
+     }
+   
+    return res.render('filter', {
+        title: "filter author",
+        array: arr
+        
+    })
+}

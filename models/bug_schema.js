@@ -13,6 +13,11 @@ const creatingBug = new mongoose.Schema({
         type:String,
         required:true
     },
+    labels: [
+        {
+            type: String,
+         required: true
+        }],
    project:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Project'

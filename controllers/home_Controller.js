@@ -5,12 +5,9 @@ module.exports.home = async function(req, res){
 
     const bug = await Bug.find({});
 
-    const projects = await project.find({})
+    const projects = await project.find({});
   
-   .populate('bug')
-   .populate({
-    path: 'bug'
-   })
+   
    
     
 
