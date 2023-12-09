@@ -32,7 +32,7 @@ module.exports.destroy = async function(req, res){
 module.exports.filter = async function(req, res){
      const Project = await project.find({});
 
-     const arr = [];
+     let arr = [];
      for(let i = 0; i<Project.length; i++){
         if(req.params.Author === Project[i].Author){
            let j = 0;
