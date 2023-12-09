@@ -43,12 +43,10 @@ module.exports.createBugs = async function(req, res){
      path: 'bug'
     });
     
-    const bugs = await bug.find({});
 
     return res.render('project_bugs', {
         title: "create bugs",
         Project: projects,
-        all_bugs: bugs
        })
   
 
