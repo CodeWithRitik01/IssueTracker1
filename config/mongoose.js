@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Issue_Tracker',{ useNewUrlParser: true, useUnifiedTopology: true });
+const url = 'mongodb://127.0.0.1:27017/Issue_Tracker';
+mongoose.connect(url);
 
 const db = mongoose.connection;
 
