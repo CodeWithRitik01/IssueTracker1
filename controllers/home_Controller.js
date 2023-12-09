@@ -5,16 +5,7 @@ module.exports.home = async function(req, res){
 
     
 
-    const projects = await project.find({}).maxTimeMS(20000).exec(function(err, projects) {
-        // Handle the result or error
-        if(err){
-            console.log('sorry');
-            return res.status(500).send('Error in creating a bug');
-
-        }
-      });
-  
-   
+    const projects = await project.find({}).sort('-createdAt');
    
     
 
