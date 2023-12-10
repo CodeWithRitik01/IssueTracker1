@@ -1,17 +1,10 @@
-const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb+srv://IssueTracker:<issue123>@cluster0.grlkjtq.mongodb.net/?retryWrites=true&w=majority'
 
-const url = 'mongodb://127.0.0.1:27017/Issue_Tracker';
-mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000, // 5 seconds timeout for server selection
-    socketTimeoutMS: 45000, // 45 seconds timeout for socket operations
-  });
+async function getEmpData() {
+    let client = await MongoClient.connect(url);
+    let connection = client.db('issueTracker'); // Establish connection
+    return connection.collection('IssueTracker2023'); // creating a collection and naming it also
+}
 
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'error connection to db'));
-
-db.once('open', function(){
-    console.log('successfully connected to the database');
-})
+module.exports = getEmpData;
