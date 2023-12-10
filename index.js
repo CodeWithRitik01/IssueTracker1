@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 8000;
 
-const { ObjectId } = require('mongodb');
 const db = require('./config/mongoose');
 const Project = require('./models/creating_schema');
 const Bugs = require('./models/bug_schema');
