@@ -3,7 +3,7 @@ const bug = require('../models/bug_schema');
 
 
 
-
+// it will create new bug in database
 module.exports.addToBug = async function(req, res){
     try{
         let Project = await project.findById(req.body.project);
@@ -27,6 +27,7 @@ module.exports.addToBug = async function(req, res){
    
 }
 
+// funtion to delete the bug
 module.exports.destroy = async function(req, res){
     const Bug = await bug.findById(req.params.id);
     let projectId = Bug.project;
@@ -36,6 +37,8 @@ module.exports.destroy = async function(req, res){
     return res.redirect('/show/bug');
 }
 
+
+// this will redirect and render important things to Project's bug page
 module.exports.createBugs = async function(req, res){
     const projects = await project.find({})
     .populate('bug')

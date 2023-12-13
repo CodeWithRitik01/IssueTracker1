@@ -1,6 +1,7 @@
 const project = require('../models/creating_schema');
 const Bug = require('../models/bug_schema');
 
+//it is a homepage
 module.exports.home = async function(req, res){
 
     
