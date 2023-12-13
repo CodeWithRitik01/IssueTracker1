@@ -3,13 +3,15 @@ const Bug = require('../models/bug_schema');
 
 
 
-
+// to add project detail in database
 module.exports.addToDB = async function(req, res){
     const user = await project.create(req.body);
+   
    
     return res.redirect('/');
 }
 
+// to create project page 
 module.exports.create = async function(req, res){
     const Project = await project.findById(req.params.id);
   
@@ -21,6 +23,7 @@ module.exports.create = async function(req, res){
     })
 }
 
+// to delete project detail from db and from screen
 module.exports.destroy = async function(req, res){
     const Project = await project.findById(req.params.id);
     await project.deleteOne();
@@ -29,6 +32,8 @@ module.exports.destroy = async function(req, res){
     return res.redirect('/');
 }
 
+
+// it will filter project on the basis of Author
 module.exports.filter = async function(req, res){
      const Project = await project.find({});
 
