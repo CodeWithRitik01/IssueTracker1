@@ -5,10 +5,20 @@ const Bug = require('../models/bug_schema');
 
 // to add project detail in database
 module.exports.addToDB = async function(req, res){
-    const user = await project.create(req.body);
+    try{
+        const user = await project.create({
+            ProjectName: req.body.ProjectName,
+            Description: req.body.Description,
+            Author: req.body.Author
+        });
+        await user.save();
    
-   
-    return res.redirect('/');
+        return res.redirect('/');
+    }catch(err){
+        res.send(err.message);
+
+    }
+ 
 }
 
 // to create project page 

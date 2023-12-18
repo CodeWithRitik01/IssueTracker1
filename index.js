@@ -1,7 +1,7 @@
 require('dotenv').config;
 const express = require('express');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 8000;
+const port =  8000;
 
 const db = require('./config/mongoose');
 const Project = require('./models/creating_schema');
